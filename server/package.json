@@ -1,0 +1,26 @@
+{
+  "name": "NOTEJS-RESTAPI-POSTGRES-TS",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"tsc --watch\" \"nodemon dist/index.js\"",
+    "build": "tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/express": "^4.17.6",
+    "@types/pg": "^7.14.3",
+    "concurrently": "^5.1.0",
+    "nodemon": "^2.0.3",
+    "typescript": "^3.8.3",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "pg": "^8.0.2"
+  }
+}

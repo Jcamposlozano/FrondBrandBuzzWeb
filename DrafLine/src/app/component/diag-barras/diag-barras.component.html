@@ -1,0 +1,13 @@
+<div>
+    <div style="display: block">
+      <canvas baseChart
+        [datasets]="barChartData"
+        [labels]="barChartLabels"
+        [options]="barChartOptions"
+        [legend]="barChartLegend"
+        [colors]="barChartColors"
+        [chartType]="barChartType">
+      </canvas>
+    </div>
+    <button class="btn btn-primary btn-block" (click)="randomize()">Update</button>
+  </div>

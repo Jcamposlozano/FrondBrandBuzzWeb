@@ -1,0 +1,114 @@
+<nav class="nav flex-column maxed ">
+
+    
+<form autocomplete="off" [formGroup] = "forma" (ngSubmit) = "guardar()">
+    
+<div class="w-100 p-3" id="bd-docs-nav" arial-label="Main navigation" >
+    <div class="form-group col">
+        <label for="inputEmail4">Country</label>
+        <select name="OS" class="form-control"
+            type="text"
+            class="form-control"
+            formControlName ="country"
+            (change) = "cargarMarcas()"
+        >
+          <option value="1">-</option>
+          <option *ngFor="let country of countrys;let i = index">
+            {{ country.Country }}
+        </option>
+      </select>    
+    </div>
+
+ <div class="form-group col">
+    <label for="inputEmail4" >Brand</label>
+    <select name="OS" class="form-control"
+        type="text"
+        class="form-control"
+        formControlName ="brand"
+        (change) = "guardar()"
+        >
+        <option>-</option>
+        <option *ngFor="let marca of marcas;let i = index">{{marca.Brand}}</option>
+    </select>
+</div> 
+
+<div class="form-group col">
+    <label for="inputEmail4">Platform</label>
+    <select name="OS" class="form-control">
+        <option value="1">-</option>
+        <option value="2">T.I</option>
+        <option value="3">C.C</option>
+        <option value="10">C.E</option>
+    </select>
+</div>
+
+<div class="form-group col">
+    <label for="inputEmail4">Campaing</label>
+    <select name="OS" class="form-control">
+        <option value="1">-</option>
+        <option value="2">T.I</option>
+        <option value="3">C.C</option>
+        <option value="10">C.E</option>
+    </select>
+</div>
+
+
+<div class="form-group col">
+    <label for="inputEmail4">Sentiment</label>
+    <select name="OS" class="form-control">
+        <option value="1">-</option>
+        <option value="2">T.I</option>
+        <option value="3">C.C</option>
+        <option value="10">C.E</option>
+    </select>
+</div>
+
+<div class="form-group col">
+    <label for="inputEmail4">Mention_Type</label>
+    <select name="OS" class="form-control">
+        <option value="1">-</option>
+        <option value="2">T.I</option>
+        <option value="3">C.C</option>
+        <option value="10">C.E</option>
+    </select>
+</div>
+
+<div class="form-group col">
+    <label for="inputEmail4">Fecha Inicio</label>
+    <input 
+    type="date" 
+    class="form-control"
+   >
+</div>
+
+<div class="form-group col">
+    <label for="inputEmail4">Fecha Fin</label>
+    <input 
+    type="date" 
+    class="form-control"
+   >
+</div>
+
+
+<div class="form-group col">
+    <label for="inputEmail4">Fecha Inicio</label>
+    <input 
+    type="date" 
+    class="form-control"
+   >
+</div>
+
+<div class="form-group col">
+    <label for="inputEmail4">Fecha Fin</label>
+    <input 
+    type="date" 
+    class="form-control"
+   >
+</div>
+</div> 
+
+</form>
+
+
+</nav>
+
