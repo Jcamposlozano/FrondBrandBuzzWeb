@@ -3,15 +3,7 @@ import { pool } from '../database';
 import { QueryResult, Query } from 'pg';
 
 
-export const getUsers = async (req: Request, res: Response): Promise<Response> => { 
-    try{
-        const response: QueryResult = await pool.query('SELECT * FROM users');
-        return res.status(200).json(response.rows);
-    }catch(err){
-        console.log(err)
-        return res.status(500).json('Internal server error');
-    }
-}
+
 
 
 export const getCountry = async (req: Request, res: Response): Promise<Response> => { 
@@ -19,7 +11,7 @@ export const getCountry = async (req: Request, res: Response): Promise<Response>
         const response: QueryResult = await pool.query('select distinct ' +
         '"Country" ' +
         'from ' +
-        '"br_Tramiq".final ');
+        'catalogos.brand_category ');
         return res.status(200).json(response.rows);
     }catch(err){
         console.log(err)
@@ -27,13 +19,14 @@ export const getCountry = async (req: Request, res: Response): Promise<Response>
     }
 }
 
+
 export const getMarcas = async (req: Request, res: Response): Promise<Response> => { 
     try{
         const country = (req.params.country)
         const response: QueryResult = await pool.query('Select distinct ' +
         '"Brand" ' +
         'from ' +
-        '"br_Tramiq".final ' +
+        'catalogos.brand_category ' +
         'where "Country" = $1', [country]);
         return res.status(200).json(response.rows);
     }catch(err){
@@ -56,7 +49,34 @@ export const getData = async (req: Request, res: Response): Promise<Response> =>
     }
 }
 
+
+export const getLogErrores = async(req: Request, res: Response): Promise<Response> => {
+    try{
+        const response: QueryResult = await pool.query('Select * ' + 
+        'from "br_Tramiq".logerrores ' +
+        'where fecha = NOW()::date');
+        return res.status(200).json(response.rows);
+    }catch(err){
+        console.log(err)
+        return res.status(500).json('Internal server error');
+    }
+}
+
+
 //*****************************************************/
+
+/* 
+export const getUsers = async (req: Request, res: Response): Promise<Response> => { 
+    try{
+        const response: QueryResult = await pool.query('SELECT * FROM users');
+        return res.status(200).json(response.rows);
+    }catch(err){
+        console.log(err)
+        return res.status(500).json('Internal server error');
+    }
+}
+
+
 export const getUserbyId = async (req: Request, res: Response): Promise<Response> => {
     try{
     const id = parseInt(req.params.id);
@@ -107,4 +127,4 @@ export const updateUSer = async (req: Request, res: Response): Promise<Response>
         console.log(err)
         return res.status(500).json('Internal server error');
     }
-} 
+}  */

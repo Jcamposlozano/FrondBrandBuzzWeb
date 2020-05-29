@@ -5,13 +5,16 @@
     
 <div class="w-100 p-3" id="bd-docs-nav" arial-label="Main navigation" >
     <div class="form-group col">
-        <label for="inputEmail4">Country</label>
+        <label for="inputEmail4">
+            <i class="far fa-flag"></i>
+            Country</label>
         <select name="OS" class="form-control"
             type="text"
             class="form-control"
             formControlName ="country"
             (change) = "cargarMarcas()"
         >
+        
           <option value="1">-</option>
           <option *ngFor="let country of countrys;let i = index">
             {{ country.Country }}
@@ -19,8 +22,12 @@
       </select>    
     </div>
 
- <div class="form-group col">
-    <label for="inputEmail4" >Brand</label>
+ <div class="form-group col" >
+    <label for="inputEmail4" >
+        
+    <i [ngClass] = "{ 'fa':!cargando, 'fa-refresh fa-spin':cargando }"
+        class="fas fa-beer"></i>
+        Brand</label>
     <select name="OS" class="form-control"
         type="text"
         class="form-control"
@@ -33,8 +40,36 @@
 </div> 
 
 <div class="form-group col">
-    <label for="inputEmail4">Platform</label>
-    <select name="OS" class="form-control">
+    <label for="inputEmail4">
+        <i class="fas fa-users"></i>
+        Platform</label>
+    <select name="OS" class="form-control"
+        type="text"
+        class ="form-control"
+        formControlName = "platform"
+         (change) = "guardar()"
+        >
+        <option value="1">-</option>
+        <option value="2">FACEBOOK</option>
+        <option value="3">FB INBOX</option>
+        <option value="4">INSTAGRAM</option>
+        <option value="5">LINKEDIN</option>
+        <option value="6">OTRAS</option>
+        <option value="7">TWITTER</option>
+        <option value="8">YOUTUBE</option>
+    </select>
+</div>
+
+<div class="form-group col">
+    <label for="inputEmail4">
+        <i class="far fa-lightbulb"></i>
+        Campaing</label>
+    <select name="OS" class="form-control"
+        type="text"
+        class ="form-control"
+        formControlName = "campaing"
+         (change) = "guardar()"
+        >
         <option value="1">-</option>
         <option value="2">T.I</option>
         <option value="3">C.C</option>
@@ -42,73 +77,64 @@
     </select>
 </div>
 
-<div class="form-group col">
-    <label for="inputEmail4">Campaing</label>
-    <select name="OS" class="form-control">
-        <option value="1">-</option>
-        <option value="2">T.I</option>
-        <option value="3">C.C</option>
-        <option value="10">C.E</option>
-    </select>
-</div>
-
 
 <div class="form-group col">
-    <label for="inputEmail4">Sentiment</label>
-    <select name="OS" class="form-control">
+    <label for="inputEmail4">
+        <i class="far fa-smile-beam"></i>
+        Sentiment</label>
+    <select name="OS" class="form-control"
+        type="text"
+        class ="form-control"
+        formControlName = "sentiment"
+         (change) = "guardar()"
+        >
         <option value="1">-</option>
-        <option value="2">T.I</option>
-        <option value="3">C.C</option>
-        <option value="10">C.E</option>
-    </select>
-</div>
-
-<div class="form-group col">
-    <label for="inputEmail4">Mention_Type</label>
-    <select name="OS" class="form-control">
-        <option value="1">-</option>
-        <option value="2">T.I</option>
-        <option value="3">C.C</option>
-        <option value="10">C.E</option>
+        <option value="2">Positive</option>
+        <option value="3">Negative</option>
+        <option value="10">Neutral</option>
     </select>
 </div>
 
 <div class="form-group col">
-    <label for="inputEmail4">Fecha Inicio</label>
+    <label for="inputEmail4">
+        <i class="far fa-comment"></i>
+        Mention_Type</label>
+    <select name="OS" class="form-control"
+        type="text"
+        class ="form-control"
+        formControlName = "sentiment"
+         (change) = "guardar()"
+        >
+        <option value="1">-</option>
+        <option value="2">User Mentions</option>
+    </select>
+</div>
+
+<div class="form-group col">
+    <label for="inputEmail4">
+        <i class="far fa-calendar-alt"></i>
+        Fecha Inicio</label>
     <input 
     type="date" 
     class="form-control"
+    formControlName = "date_init"
+     (change) = "guardar()"
    >
 </div>
 
 <div class="form-group col">
-    <label for="inputEmail4">Fecha Fin</label>
+    <label for="inputEmail4">
+        <i class="far fa-calendar-alt"></i>
+        Fecha Fin</label>
     <input 
     type="date" 
     class="form-control"
+    formControlName = "date_fin"
+     (change) = "guardar()"
    >
 </div>
 
-
-<div class="form-group col">
-    <label for="inputEmail4">Fecha Inicio</label>
-    <input 
-    type="date" 
-    class="form-control"
-   >
-</div>
-
-<div class="form-group col">
-    <label for="inputEmail4">Fecha Fin</label>
-    <input 
-    type="date" 
-    class="form-control"
-   >
-</div>
-</div> 
-
+</div>  
 </form>
-
-
 </nav>
 

@@ -10,22 +10,12 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const database_1 = require("../database");
-exports.getUsers = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    try {
-        const response = yield database_1.pool.query('SELECT * FROM users');
-        return res.status(200).json(response.rows);
-    }
-    catch (err) {
-        console.log(err);
-        return res.status(500).json('Internal server error');
-    }
-});
 exports.getCountry = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const response = yield database_1.pool.query('select distinct ' +
             '"Country" ' +
             'from ' +
-            '"br_Tramiq".final ');
+            'catalogos.brand_category ');
         return res.status(200).json(response.rows);
     }
     catch (err) {
@@ -39,7 +29,7 @@ exports.getMarcas = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
         const response = yield database_1.pool.query('Select distinct ' +
             '"Brand" ' +
             'from ' +
-            '"br_Tramiq".final ' +
+            'catalogos.brand_category ' +
             'where "Country" = $1', [country]);
         return res.status(200).json(response.rows);
     }
@@ -60,22 +50,47 @@ exports.getData = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         return res.status(500).json('Internal server error');
     }
 });
-//*****************************************************/
-exports.getUserbyId = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+exports.getLogErrores = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const id = parseInt(req.params.id);
-        const response = yield database_1.pool.query('SELECT * FROM users where id = $1', [id]);
-        return res.json(response.rows);
+        const response = yield database_1.pool.query('Select * ' +
+            'from "br_Tramiq".logerrores ' +
+            'where fecha = NOW()::date');
+        return res.status(200).json(response.rows);
     }
     catch (err) {
         console.log(err);
         return res.status(500).json('Internal server error');
     }
 });
-exports.creatUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const { name, email } = req.body;
-    const response = yield database_1.pool.query('INSERT INTO users (name, email) VALUES ($1, $2)', [name, email]);
-    console.log(name, email);
+//*****************************************************/
+/*
+export const getUsers = async (req: Request, res: Response): Promise<Response> => {
+    try{
+        const response: QueryResult = await pool.query('SELECT * FROM users');
+        return res.status(200).json(response.rows);
+    }catch(err){
+        console.log(err)
+        return res.status(500).json('Internal server error');
+    }
+}
+
+
+export const getUserbyId = async (req: Request, res: Response): Promise<Response> => {
+    try{
+    const id = parseInt(req.params.id);
+    const response: QueryResult = await pool.query('SELECT * FROM users where id = $1', [id]);
+    return res.json(response.rows);
+    }catch(err){
+        console.log(err)
+        return res.status(500).json('Internal server error');
+    }
+}
+
+
+export const creatUser = async (req: Request, res: Response): Promise<Response> => {
+    const { name , email } = req.body;
+    const response : QueryResult = await pool.query('INSERT INTO users (name, email) VALUES ($1, $2)', [name, email]);
+    console.log(name , email)
     return res.json({
         message: 'User created Successfully',
         body: {
@@ -84,28 +99,30 @@ exports.creatUser = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
                 email
             }
         }
-    });
-});
-exports.deleteUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    try {
+    })
+}
+
+
+export const deleteUser = async (req: Request, res: Response): Promise<Response> => {
+    try{
         const id = parseInt(req.params.id);
-        yield database_1.pool.query('DELETE FROM users where id = $1', [id]);
+        await pool.query('DELETE FROM users where id = $1', [id]);
         return res.json(`User ${id} deleted Successfully`);
-    }
-    catch (err) {
-        console.log(err);
-        return res.status(500).json('Internal server error');
-    }
-});
-exports.updateUSer = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    try {
+        }catch(err){
+            console.log(err)
+            return res.status(500).json('Internal server error');
+        }
+}
+
+export const updateUSer = async (req: Request, res: Response): Promise<Response> => {
+    try{
         const id = parseInt(req.params.id);
-        const { name, email } = req.body;
-        yield database_1.pool.query('UPDATE users SET name = $1, email = $2 where id = $3', [name, email, id]);
+        const { name , email } = req.body;
+        await pool.query('UPDATE users SET name = $1, email = $2 where id = $3', [name,email,id]);
         return res.json(`User ${name} Ipdated Successful`);
-    }
-    catch (err) {
-        console.log(err);
+
+    }catch(err){
+        console.log(err)
         return res.status(500).json('Internal server error');
     }
-});
+}  */

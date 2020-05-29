@@ -11,7 +11,7 @@ export class DiagTortaComponent implements OnInit {
 
   public doughnutChartLabels: Label[] = ['Download Sales', 'In-Store Sales', 'Mail-Order Sales'];
   public doughnutChartData: MultiDataSet = [
-    [350, 450, 100]
+    [350, 450, 100, 45,256]
     /* ,
     [50, 150, 120],
     [250, 130, 70], */

@@ -1,0 +1,31 @@
+<br>
+<h2 aling="center">ERRORES EN EL PROCESO</h2>
+
+<hr>
+<br>
+
+<div class="container">
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Fecha</th>
+        <th scope="col">Hora</th>
+        <th scope="col">Error</th>
+        <th scope="col">Archivo</th>
+        <th scope="col">Descripcion</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let erre of logErrores;let i = index"> 
+        <th scope="row">{{ i }}</th>
+        <td>{{ erre.fecha }}</td>
+        <td>{{ erre.hora }}</td>
+        <td>{{ erre.error }}</td>
+        <td>{{ erre.archivo }}</td>
+        <td>{{ erre.descripcion }}</td>
+      </tr>
+    </tbody>
+</table>
+</div>

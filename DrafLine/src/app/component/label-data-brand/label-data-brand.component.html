@@ -1,6 +1,10 @@
-<div class="card text-white bg-primary mb-3" style="max-height:17rem; max-width: 75rem;">
+<div class="card text-white bg-success mb-3" style="max-height:17rem; max-width: 75rem;">
   <div class="card-header">
-   <h5> {{ this.marca }} </h5>
+
+   <h5 *ngIf="serviceObserva.marca$ | async as marca; else sinData" > {{ marca }} </h5>
+    <ng-template #sinData>
+      No se ha seleccionado una marca
+    </ng-template>
   </div>
   <div class="card-body">
 

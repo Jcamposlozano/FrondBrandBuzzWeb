@@ -12,7 +12,7 @@ import { BrandBuzzComponent } from './component/brand-buzz/brand-buzz.component'
 //Graficos
 
 import { ChartsModule } from 'ng2-charts';
-import { FiltrosBrandComponent } from './component/filtros-brand/filtros-brand.component';
+import { NadvarComponent } from './component/navbar/navbar.component';
 import { DiagTortaComponent } from './component/diag-torta/diag-torta.component';
 import { DiagBarrasComponent } from './component/diag-barras/diag-barras.component';
 import { LabelDataBRandComponent } from './component/label-data-brand/label-data-brand.component';
@@ -21,7 +21,8 @@ import { FooterComponent } from './component/footer/footer.component';
 
 // formularios
 
-import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LogErroresComponent } from './component/log-errores/log-errores.component'
 
 
 @NgModule({
@@ -29,12 +30,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'
     AppComponent,
     UsersComponent,
     BrandBuzzComponent,
-    FiltrosBrandComponent,
+    NadvarComponent,
     DiagTortaComponent,
     DiagBarrasComponent,
     LabelDataBRandComponent,
     ControlProgramaComponent,
-    FooterComponent
+    FooterComponent,
+    LogErroresComponent
   ],
   imports: [
     BrowserModule,

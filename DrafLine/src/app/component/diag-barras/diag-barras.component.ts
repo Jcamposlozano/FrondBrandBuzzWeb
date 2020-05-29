@@ -43,7 +43,7 @@ export class DiagBarrasComponent implements OnInit {
         }
         ,err => console.log(err)
     )
-    Swal.close();
+ 
   }
 
   organizarData(){
@@ -91,6 +91,7 @@ export class DiagBarrasComponent implements OnInit {
       //console.log(this.dataServer[i]['pruabapiloto'].substr(1,3))
     }
    // console.log(this.leabel)
+   Swal.close();
   } 
 
   public barChartOptions: ChartOptions = {

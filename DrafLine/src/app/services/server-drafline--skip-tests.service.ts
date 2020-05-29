@@ -35,6 +35,12 @@ export class ServerDraflineSkipTestsService {
     return this.http.get(`${this.API_URL}/grafico/${marca}`);
   }
   
+
+  getLogErrores(){
+    return  this.http.get(`${this.API_URL}/logErrores`);
+  }
+
+  
 /*   saveUser(user: User){
     return this.http.post(`${this.api_uri}/users`, user)
   }
